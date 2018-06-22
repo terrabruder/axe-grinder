@@ -5,7 +5,6 @@ Vagrant.configure("2") do |config|
 
     # configure VM
     config.vm.box = "ubuntu/xenial64"
-    config.ssh.insert_key = false
 
     # configure provisioning
     config.vm.provision "shell", path: "bootstrap.sh"
