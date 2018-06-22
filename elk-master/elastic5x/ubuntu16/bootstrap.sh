@@ -193,10 +193,18 @@ cp -R /ubuntu/heartbeat/* /etc/heartbeat/
 service heartbeat restart 2>&1
 /bin/systemctl enable heartbeat.service
 
+# Install redis
+echo "[INFO] Installing redis"
+apt-get install redis-server redis-tools
+
+
 # Prep for later node install
-echo "[INFO] Installing NVM prerequisites"
+echo "[INFO] Installing NVM prereqs"
 apt-get install -y build-essential libssl-dev
 
+# Prep for later chrome headless install
+echo "[INFO] Installing Chromium prereqs"
+apt-get install libpangocairo-1.0-0 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 libcups2 libxss1 libxrandr2 libgconf2-4 libasound2 libatk1.0-0 libgtk-3-0
 
 # clear out unneeded packages
 apt-get autoremove -y
