@@ -3,3 +3,4 @@
 package.box
 .idea
 *.log
+/node_modules

@@ -193,8 +193,9 @@ cp -R /ubuntu/heartbeat/* /etc/heartbeat/
 service heartbeat restart 2>&1
 /bin/systemctl enable heartbeat.service
 
-
-
+# Prep for later node install
+echo "[INFO] Installing NVM prerequisites"
+apt-get install -y build-essential libssl-dev
 
 
 # clear out unneeded packages
