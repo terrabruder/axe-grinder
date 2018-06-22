@@ -1,3 +1,5 @@
 .project
 .vagrant
 package.box
+.idea
+*.log

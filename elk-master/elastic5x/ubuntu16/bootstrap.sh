@@ -38,14 +38,14 @@ make install
 
 
 # enable colored Bash prompt
-cp /vagrant/bashrc /root/.bashrc
-cp /vagrant/bashrc /home/vagrant/.bashrc
+cp /ubuntu/bashrc /root/.bashrc
+cp /ubuntu/bashrc /home/ubuntu/.bashrc
 
 # enable more robust Nano syntax highlighting
 git clone https://github.com/scopatz/nanorc.git /root/.nano
 cat /root/.nano/nanorc >> /root/.nanorc
-git clone https://github.com/scopatz/nanorc.git /home/vagrant/.nano
-cat /home/vagrant/.nano/nanorc >> /home/vagrant/.nanorc
+git clone https://github.com/scopatz/nanorc.git /home/ubuntu/.nano
+cat /home/ubuntu/.nano/nanorc >> /home/ubuntu/.nanorc
 
 # install Java
 apt-get purge openjdk*
@@ -79,7 +79,7 @@ update-rc.d elasticsearch defaults 95 10
 service elasticsearch start
 
 # copy over config, restart, enable auto-start
-cp -R /vagrant/elasticsearch/* /etc/elasticsearch/
+cp -R /ubuntu/elasticsearch/* /etc/elasticsearch/
 service elasticsearch restart
 /bin/systemctl enable elasticsearch.service
 
@@ -96,7 +96,7 @@ apt-get install -y logstash=1:$LOGSTASH_VERSION-1
 service logstash start
 
 # copy over config files, restart
-cp -R /vagrant/logstash/* /etc/logstash/conf.d/
+cp -R /ubuntu/logstash/* /etc/logstash/conf.d/
 service logstash restart 2>&1
 /bin/systemctl enable logstash.service
 
@@ -114,7 +114,7 @@ update-rc.d kibana defaults 96 9
 service kibana start
 
 # copy over config, restart
-cp -R /vagrant/kibana/* /etc/kibana/
+cp -R /ubuntu/kibana/* /etc/kibana/
 service kibana restart 2>&1
 /bin/systemctl enable kibana.service
 
@@ -135,7 +135,7 @@ service filebeat start 2>&1
 
 # copy over config files, restart
 mkdir -p /var/log/filebeat
-cp -R /vagrant/filebeat/* /etc/filebeat/
+cp -R /ubuntu/filebeat/* /etc/filebeat/
 service filebeat restart 2>&1
 /bin/systemctl enable filebeat.service
 
@@ -155,7 +155,7 @@ service packetbeat start 2>&1
 
 # copy over config files, restart
 mkdir -p /var/log/packetbeat
-cp -R /vagrant/packetbeat/* /etc/packetbeat/
+cp -R /ubuntu/packetbeat/* /etc/packetbeat/
 service packetbeat restart 2>&1
 /bin/systemctl enable packetbeat.service
 
@@ -172,7 +172,7 @@ service metricbeat start 2>&1
 
 # copy over config files, restart
 mkdir -p /var/log/metricbeat
-cp -R /vagrant/metricbeat/* /etc/metricbeat/
+cp -R /ubuntu/metricbeat/* /etc/metricbeat/
 service metricbeat restart 2>&1
 /bin/systemctl enable metricbeat.service
 
@@ -189,7 +189,7 @@ service heartbeat start 2>&1
 
 # copy over config files, restart
 mkdir -p /var/log/heartbeat
-cp -R /vagrant/heartbeat/* /etc/heartbeat/
+cp -R /ubuntu/heartbeat/* /etc/heartbeat/
 service heartbeat restart 2>&1
 /bin/systemctl enable heartbeat.service
 
